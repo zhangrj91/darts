@@ -22,19 +22,22 @@ class AvgrageMeter(object):
     self.avg = self.sum / self.cnt
 
 
-def accuracy(output, target, topk=(1,)):
-  maxk = max(topk)
+def accuracy(output, target, topk=(1,)):#output:(bs,num_class)是64行10列, target:(bs,1)，topk=(1,5)
+  maxk = max(topk) #5
   batch_size = target.size(0)
 
-  _, pred = output.topk(maxk, 1, True, True)
-  pred = pred.t()
-  correct = pred.eq(target.view(1, -1).expand_as(pred))
+  _, pred = output.topk(maxk, 1, True, True)#maxk=5，表示dim=1按行取值
+                                            #output的值是精度，选top5是选这一行精度最大的五个对应的列，也就是属于哪一类
+                                            #pred是(bs,5) 值为类别号，0，1，...,9
+  pred = pred.t()#转置，pred:(5,bs)
+  correct = pred.eq(target.view(1, -1).expand_as(pred))#pred和target对应位置值相等返回1，不等返回0
+                                                        #target原来是64行1列，值为类别；target.view(1, -1)把target拉成一行，expand_as(pred)又把target变成5行64列
 
   res = []
-  for k in topk:
+  for k in topk:# k=1和k=5
     correct_k = correct[:k].view(-1).float().sum(0)
     res.append(correct_k.mul_(100.0/batch_size))
-  return res
+  return res #res里是两个值，一个是top1的概率，一个是top5的概率
 
 
 class Cutout(object):

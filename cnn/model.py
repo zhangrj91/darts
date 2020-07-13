@@ -10,13 +10,17 @@ class Cell(nn.Module):
   def __init__(self, genotype, C_prev_prev, C_prev, C, reduction, reduction_prev):
     super(Cell, self).__init__()
     print(C_prev_prev, C_prev, C)
-
+    #input nodes的结构固定不变，不参与搜索
+    #决定第一个input nodes的结构, 取决于前一个cell是否是reduction
     if reduction_prev:
       self.preprocess0 = FactorizedReduce(C_prev_prev, C)
     else:
-      self.preprocess0 = ReLUConvBN(C_prev_prev, C, 1, 1, 0)
+      self.preprocess0 = ReLUConvBN(C_prev_prev, C, 1, 1, 0)#第一个input_nodes是cell k-2的输出，cell k-2的输出通道数为C_prev_prev，所以这里操作的输入通道数为C_prev_prev
+
+    #第二个input nodes的结构
     self.preprocess1 = ReLUConvBN(C_prev, C, 1, 1, 0)
-    
+
+    # 这一部分就是根据是reduction cell 还是normal cell 把对应的节点和节点的操作找到
     if reduction:
       op_names, indices = zip(*genotype.reduce)
       concat = genotype.reduce_concat

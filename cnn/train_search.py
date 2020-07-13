@@ -77,11 +77,12 @@ def main():
   model = model.cuda()
   logging.info("param size = %fMB", utils.count_parameters_in_MB(model))
 
+  #用来优化w的优化器
   optimizer = torch.optim.SGD(
-      model.parameters(),
-      args.learning_rate,
-      momentum=args.momentum,
-      weight_decay=args.weight_decay)
+      model.parameters(),#优化器更新的参数，这里更新的是w
+      args.learning_rate,#初始值是0.025，使用的余弦退火调度更新学习率，每个epoch的学习率都不一样
+      momentum=args.momentum,#0.9
+      weight_decay=args.weight_decay)#正则化参数3e-4
 
   train_transform, valid_transform = utils._data_transforms_cifar10(args)
   train_data = dset.CIFAR10(root=args.data, train=True, download=True, transform=train_transform)
@@ -92,25 +93,28 @@ def main():
 
   train_queue = torch.utils.data.DataLoader(
       train_data, batch_size=args.batch_size,
-      sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split]),
+      sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split]),#自定义从样本中取数据的策略，当train_portion=0.5时，就是前一半的数据用于train
       pin_memory=True, num_workers=2)
 
   valid_queue = torch.utils.data.DataLoader(
       train_data, batch_size=args.batch_size,
-      sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[split:num_train]),
+      sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[split:num_train]),#数据集中后一半的数据用于验证
       pin_memory=True, num_workers=2)
 
-  scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  # 学习率更新参数，每次迭代调整不同的学习率
+  scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(#使用余弦退火调度设置各组参数组的学习率
         optimizer, float(args.epochs), eta_min=args.learning_rate_min)
 
+  # 创建用于更新α的architect
   architect = Architect(model, args)
 
+  # 经历50个epoch后搜索完毕
   for epoch in range(args.epochs):
     scheduler.step()
-    lr = scheduler.get_lr()[0]
+    lr = scheduler.get_lr()[0]#得到本次迭代的学习率lr
     logging.info('epoch %d lr %e', epoch, lr)
 
-    genotype = model.genotype()
+    genotype = model.genotype()#对应论文2.4 选出来权重值大的两个前驱节点，并把(操作，前驱节点)存下来
     logging.info('genotype = %s', genotype)
 
     print(F.softmax(model.alphas_normal, dim=-1))
@@ -128,31 +132,33 @@ def main():
 
 
 def train(train_queue, valid_queue, model, architect, criterion, optimizer, lr):
-  objs = utils.AvgrageMeter()
-  top1 = utils.AvgrageMeter()
-  top5 = utils.AvgrageMeter()
+  objs = utils.AvgrageMeter()# 用于保存loss的值
+  top1 = utils.AvgrageMeter()# 前1预测正确的概率
+  top5 = utils.AvgrageMeter()# 前5预测正确的概率
 
-  for step, (input, target) in enumerate(train_queue):
+  for step, (input, target) in enumerate(train_queue): #每个step取出一个batch，batchsize是64（256个数据对）
     model.train()
     n = input.size(0)
 
-    input = Variable(input, requires_grad=False).cuda()
-    target = Variable(target, requires_grad=False).cuda(async=True)
+    input = Variable(input, requires_grad=False).cuda() #requires_grad为false不对input求导
+    target = Variable(target, requires_grad=False).cuda(non_blocking=True)
 
     # get a random minibatch from the search queue with replacement
+    # 更新α是用validation set进行更新的，所以我们每次都从valid_queue拿出一个batch传入architect.step()
     input_search, target_search = next(iter(valid_queue))
     input_search = Variable(input_search, requires_grad=False).cuda()
-    target_search = Variable(target_search, requires_grad=False).cuda(async=True)
+    target_search = Variable(target_search, requires_grad=False).cuda(non_blocking=True)
 
-    architect.step(input, target, input_search, target_search, lr, optimizer, unrolled=args.unrolled)
+    # 更新α
+    architect.step(input, target, input_search, target_search, lr, optimizer, unrolled=args.unrolled)#unrolled是true就是用论文的公式进行α的更新
 
-    optimizer.zero_grad()
+    optimizer.zero_grad()#清除之前学到的梯度的参数
     logits = model(input)
-    loss = criterion(logits, target)
+    loss = criterion(logits, target)#预测值logits和真实值target的loss
 
-    loss.backward()
-    nn.utils.clip_grad_norm(model.parameters(), args.grad_clip)
-    optimizer.step()
+    loss.backward()#反向传播，计算梯度
+    nn.utils.clip_grad_norm(model.parameters(), args.grad_clip)#梯度裁剪
+    optimizer.step()#应用梯度
 
     prec1, prec5 = utils.accuracy(logits, target, topk=(1, 5))
     objs.update(loss.data[0], n)
@@ -164,7 +170,7 @@ def train(train_queue, valid_queue, model, architect, criterion, optimizer, lr):
 
   return top1.avg, objs.avg
 
-
+#只前向传播
 def infer(valid_queue, model, criterion):
   objs = utils.AvgrageMeter()
   top1 = utils.AvgrageMeter()
@@ -173,7 +179,7 @@ def infer(valid_queue, model, criterion):
 
   for step, (input, target) in enumerate(valid_queue):
     input = Variable(input, volatile=True).cuda()
-    target = Variable(target, volatile=True).cuda(async=True)
+    target = Variable(target, volatile=True).cuda(non_blocking=True)
 
     logits = model(input)
     loss = criterion(logits, target)
