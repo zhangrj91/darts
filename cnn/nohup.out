@@ -1,0 +1,1399 @@
+Experiment dir : search-EXP-20200730-163108
+07/30 04:31:09 PM gpu device = 0
+07/30 04:31:09 PM args = Namespace(arch_learning_rate=0.0003, arch_weight_decay=0.001, batch_size=64, cutout=False, cutout_length=16, data='../data', drop_path_prob=0.3, epochs=50, gpu=0, grad_clip=5, init_channels=16, layers=8, learning_rate=0.025, learning_rate_min=0.001, model_path='saved_models', momentum=0.9, report_freq=50, save='search-EXP-20200730-163108', seed=2, train_portion=0.5, unrolled=True, weight_decay=0.0003)
+07/30 04:31:12 PM param size = 1.930618MB
+Files already downloaded and verified
+07/30 04:31:13 PM epoch 0 lr 2.495266e-02
+07/30 04:31:13 PM genotype = Genotype(normal=[('dil_conv_5x5', 1), ('sep_conv_3x3', 0), ('dil_conv_3x3', 2), ('dil_conv_5x5', 1), ('avg_pool_3x3', 1), ('dil_conv_5x5', 2), ('dil_conv_3x3', 0), ('max_pool_3x3', 3)], normal_concat=range(2, 6), reduce=[('avg_pool_3x3', 1), ('sep_conv_5x5', 0), ('dil_conv_5x5', 0), ('sep_conv_3x3', 1), ('max_pool_3x3', 0), ('avg_pool_3x3', 2), ('sep_conv_3x3', 4), ('sep_conv_3x3', 0)], reduce_concat=range(2, 6))
+tensor([[0.1250, 0.1247, 0.1251, 0.1250, 0.1251, 0.1251, 0.1250, 0.1250],
+        [0.1249, 0.1250, 0.1250, 0.1249, 0.1249, 0.1251, 0.1251, 0.1251],
+        [0.1251, 0.1250, 0.1250, 0.1251, 0.1248, 0.1251, 0.1248, 0.1251],
+        [0.1250, 0.1250, 0.1251, 0.1249, 0.1249, 0.1250, 0.1250, 0.1251],
+        [0.1248, 0.1250, 0.1249, 0.1249, 0.1249, 0.1251, 0.1252, 0.1251],
+        [0.1249, 0.1250, 0.1249, 0.1250, 0.1251, 0.1251, 0.1250, 0.1250],
+        [0.1249, 0.1249, 0.1252, 0.1251, 0.1250, 0.1250, 0.1250, 0.1249],
+        [0.1250, 0.1248, 0.1251, 0.1250, 0.1250, 0.1250, 0.1251, 0.1251],
+        [0.1250, 0.1250, 0.1250, 0.1250, 0.1250, 0.1250, 0.1251, 0.1249],
+        [0.1249, 0.1249, 0.1249, 0.1250, 0.1249, 0.1250, 0.1253, 0.1251],
+        [0.1249, 0.1251, 0.1251, 0.1250, 0.1249, 0.1249, 0.1249, 0.1251],
+        [0.1250, 0.1250, 0.1252, 0.1251, 0.1249, 0.1249, 0.1250, 0.1249],
+        [0.1249, 0.1253, 0.1250, 0.1248, 0.1248, 0.1251, 0.1251, 0.1250],
+        [0.1249, 0.1251, 0.1251, 0.1252, 0.1250, 0.1248, 0.1250, 0.1249]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1251, 0.1250, 0.1250, 0.1250, 0.1249, 0.1251, 0.1249, 0.1250],
+        [0.1249, 0.1248, 0.1252, 0.1247, 0.1251, 0.1249, 0.1252, 0.1251],
+        [0.1249, 0.1249, 0.1251, 0.1250, 0.1248, 0.1250, 0.1249, 0.1254],
+        [0.1251, 0.1250, 0.1250, 0.1250, 0.1252, 0.1250, 0.1249, 0.1250],
+        [0.1251, 0.1249, 0.1250, 0.1250, 0.1251, 0.1249, 0.1250, 0.1251],
+        [0.1251, 0.1252, 0.1251, 0.1247, 0.1252, 0.1249, 0.1249, 0.1250],
+        [0.1251, 0.1251, 0.1251, 0.1250, 0.1247, 0.1250, 0.1251, 0.1250],
+        [0.1250, 0.1249, 0.1251, 0.1250, 0.1250, 0.1248, 0.1251, 0.1248],
+        [0.1252, 0.1251, 0.1250, 0.1250, 0.1249, 0.1249, 0.1250, 0.1250],
+        [0.1248, 0.1249, 0.1250, 0.1249, 0.1252, 0.1250, 0.1251, 0.1251],
+        [0.1252, 0.1249, 0.1250, 0.1250, 0.1250, 0.1249, 0.1250, 0.1251],
+        [0.1249, 0.1251, 0.1250, 0.1250, 0.1250, 0.1251, 0.1250, 0.1249],
+        [0.1249, 0.1249, 0.1251, 0.1251, 0.1246, 0.1251, 0.1251, 0.1251],
+        [0.1250, 0.1247, 0.1250, 0.1251, 0.1252, 0.1250, 0.1250, 0.1250]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+/opt/conda/envs/deeplearning/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:123: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+/opt/conda/envs/deeplearning/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:484: UserWarning: To get the last learning rate computed by the scheduler, please use `get_last_lr()`.
+  "please use `get_last_lr()`.", UserWarning)
+07/30 04:31:27 PM train 000 2.471590e+00 6.250000 39.062500
+/opt/conda/conda-bld/pytorch_1591914895884/work/torch/csrc/utils/python_arg_parser.cpp:756: UserWarning: This overload of sub is deprecated:
+	sub(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	sub(Tensor other, *, Number alpha)
+train_search.py:162: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  nn.utils.clip_grad_norm(model.parameters(), args.grad_clip)#梯度裁剪
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 04:40:01 PM train 050 2.034265e+00 25.398284 78.645833
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 04:48:33 PM train 100 1.912673e+00 29.378094 82.874381
+07/30 04:57:03 PM train 150 1.816164e+00 32.626242 85.026904
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 05:05:29 PM train 200 1.755380e+00 34.942475 86.240672
+07/30 05:14:00 PM train 250 1.694602e+00 37.232321 87.487550
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 05:22:29 PM train 300 1.645458e+00 39.093646 88.455150
+07/30 05:30:59 PM train 350 1.603403e+00 40.718483 89.155983
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 05:37:48 PM train_acc 41.776000
+07/30 05:37:48 PM valid 000 1.503137e+00 53.125000 90.625000
+07/30 05:38:02 PM valid 050 1.364130e+00 49.969363 93.535539
+07/30 05:38:15 PM valid 100 1.369783e+00 49.922649 93.688119
+07/30 05:38:28 PM valid 150 1.373315e+00 49.844785 93.594785
+07/30 05:38:40 PM valid 200 1.375453e+00 49.735697 93.734453
+07/30 05:38:53 PM valid 250 1.379350e+00 49.869273 93.600598
+07/30 05:39:06 PM valid 300 1.374909e+00 49.984427 93.646179
+07/30 05:39:19 PM valid 350 1.379852e+00 49.799679 93.554131
+07/30 05:39:29 PM valid_acc 49.708000
+07/30 05:39:29 PM epoch 1 lr 2.483464e-02
+07/30 05:39:29 PM genotype = Genotype(normal=[('sep_conv_5x5', 0), ('sep_conv_3x3', 1), ('sep_conv_5x5', 2), ('sep_conv_3x3', 1), ('dil_conv_5x5', 3), ('dil_conv_5x5', 2), ('dil_conv_3x3', 3), ('dil_conv_5x5', 2)], normal_concat=range(2, 6), reduce=[('sep_conv_5x5', 1), ('max_pool_3x3', 0), ('max_pool_3x3', 0), ('dil_conv_5x5', 2), ('dil_conv_3x3', 2), ('dil_conv_5x5', 1), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1253, 0.1256, 0.1219, 0.1245, 0.1258, 0.1268, 0.1255, 0.1246],
+        [0.1264, 0.1249, 0.1215, 0.1236, 0.1268, 0.1256, 0.1252, 0.1260],
+        [0.1252, 0.1258, 0.1208, 0.1231, 0.1248, 0.1265, 0.1259, 0.1279],
+        [0.1282, 0.1249, 0.1204, 0.1227, 0.1282, 0.1256, 0.1264, 0.1236],
+        [0.1265, 0.1227, 0.1202, 0.1225, 0.1250, 0.1286, 0.1265, 0.1281],
+        [0.1274, 0.1249, 0.1202, 0.1225, 0.1271, 0.1276, 0.1250, 0.1254],
+        [0.1272, 0.1231, 0.1198, 0.1219, 0.1268, 0.1281, 0.1250, 0.1280],
+        [0.1283, 0.1212, 0.1196, 0.1231, 0.1274, 0.1268, 0.1252, 0.1284],
+        [0.1285, 0.1203, 0.1189, 0.1210, 0.1258, 0.1275, 0.1283, 0.1297],
+        [0.1278, 0.1256, 0.1202, 0.1219, 0.1268, 0.1266, 0.1259, 0.1253],
+        [0.1276, 0.1252, 0.1213, 0.1230, 0.1256, 0.1251, 0.1263, 0.1258],
+        [0.1277, 0.1227, 0.1210, 0.1237, 0.1271, 0.1263, 0.1238, 0.1276],
+        [0.1273, 0.1219, 0.1199, 0.1211, 0.1262, 0.1278, 0.1288, 0.1271],
+        [0.1283, 0.1220, 0.1209, 0.1224, 0.1258, 0.1274, 0.1271, 0.1262]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1224, 0.1271, 0.1260, 0.1246, 0.1270, 0.1255, 0.1234, 0.1241],
+        [0.1280, 0.1217, 0.1214, 0.1260, 0.1254, 0.1273, 0.1243, 0.1259],
+        [0.1231, 0.1275, 0.1257, 0.1236, 0.1240, 0.1269, 0.1241, 0.1251],
+        [0.1281, 0.1229, 0.1221, 0.1272, 0.1258, 0.1249, 0.1236, 0.1255],
+        [0.1249, 0.1237, 0.1230, 0.1250, 0.1261, 0.1260, 0.1240, 0.1274],
+        [0.1239, 0.1265, 0.1253, 0.1252, 0.1242, 0.1234, 0.1258, 0.1257],
+        [0.1269, 0.1220, 0.1210, 0.1248, 0.1250, 0.1268, 0.1260, 0.1276],
+        [0.1242, 0.1236, 0.1228, 0.1246, 0.1255, 0.1246, 0.1282, 0.1265],
+        [0.1260, 0.1226, 0.1220, 0.1239, 0.1262, 0.1266, 0.1259, 0.1268],
+        [0.1234, 0.1288, 0.1272, 0.1222, 0.1245, 0.1247, 0.1245, 0.1246],
+        [0.1268, 0.1226, 0.1218, 0.1260, 0.1262, 0.1255, 0.1264, 0.1248],
+        [0.1238, 0.1242, 0.1232, 0.1249, 0.1255, 0.1264, 0.1238, 0.1282],
+        [0.1257, 0.1237, 0.1230, 0.1254, 0.1245, 0.1275, 0.1261, 0.1241],
+        [0.1236, 0.1239, 0.1241, 0.1263, 0.1257, 0.1245, 0.1269, 0.1250]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+train_search.py:183: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  input = Variable(input, volatile=True).cuda()
+train_search.py:184: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  target = Variable(target, volatile=True).cuda(non_blocking=True)
+07/30 05:39:40 PM train 000 1.200463e+00 60.937500 96.875000
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 05:48:10 PM train 050 1.309914e+00 52.818627 93.841912
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 05:56:38 PM train 100 1.286617e+00 52.985767 94.306931
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:05:09 PM train 150 1.266375e+00 53.528560 94.629553
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:13:40 PM train 200 1.227337e+00 55.208333 94.916045
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:22:10 PM train 250 1.210429e+00 55.951195 94.932769
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:30:44 PM train 300 1.194816e+00 56.634136 95.078904
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:39:12 PM train 350 1.179781e+00 57.264957 95.232372
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 06:46:02 PM train_acc 57.712000
+07/30 06:46:02 PM valid 000 8.309135e-01 68.750000 95.312500
+07/30 06:46:16 PM valid 050 1.024532e+00 63.112745 96.691176
+07/30 06:46:29 PM valid 100 1.033447e+00 63.149752 96.735767
+07/30 06:46:42 PM valid 150 1.030643e+00 63.141556 96.678394
+07/30 06:46:55 PM valid 200 1.022897e+00 63.339552 96.758396
+07/30 06:47:08 PM valid 250 1.023220e+00 63.222112 96.650896
+07/30 06:47:21 PM valid 300 1.024714e+00 63.268272 96.558347
+07/30 06:47:34 PM valid 350 1.023810e+00 63.283476 96.607906
+07/30 06:47:45 PM valid_acc 63.248000
+07/30 06:47:45 PM epoch 2 lr 2.467010e-02
+07/30 06:47:45 PM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('max_pool_3x3', 0), ('sep_conv_5x5', 2), ('sep_conv_3x3', 1), ('dil_conv_5x5', 3), ('sep_conv_3x3', 1), ('sep_conv_3x3', 3), ('sep_conv_3x3', 2)], normal_concat=range(2, 6), reduce=[('sep_conv_5x5', 1), ('max_pool_3x3', 0), ('sep_conv_5x5', 0), ('skip_connect', 1), ('dil_conv_3x3', 2), ('dil_conv_5x5', 3), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1245, 0.1274, 0.1200, 0.1258, 0.1247, 0.1269, 0.1249, 0.1258],
+        [0.1281, 0.1233, 0.1177, 0.1216, 0.1303, 0.1274, 0.1237, 0.1279],
+        [0.1242, 0.1277, 0.1189, 0.1233, 0.1252, 0.1275, 0.1266, 0.1266],
+        [0.1306, 0.1240, 0.1168, 0.1208, 0.1303, 0.1268, 0.1265, 0.1242],
+        [0.1287, 0.1208, 0.1166, 0.1218, 0.1276, 0.1312, 0.1232, 0.1300],
+        [0.1268, 0.1258, 0.1177, 0.1218, 0.1294, 0.1289, 0.1255, 0.1243],
+        [0.1290, 0.1204, 0.1154, 0.1192, 0.1315, 0.1302, 0.1241, 0.1301],
+        [0.1297, 0.1182, 0.1152, 0.1205, 0.1302, 0.1295, 0.1257, 0.1310],
+        [0.1306, 0.1161, 0.1141, 0.1174, 0.1275, 0.1304, 0.1295, 0.1343],
+        [0.1278, 0.1268, 0.1184, 0.1221, 0.1269, 0.1272, 0.1255, 0.1253],
+        [0.1304, 0.1241, 0.1181, 0.1214, 0.1258, 0.1261, 0.1278, 0.1263],
+        [0.1300, 0.1203, 0.1174, 0.1227, 0.1298, 0.1279, 0.1221, 0.1297],
+        [0.1290, 0.1183, 0.1158, 0.1182, 0.1308, 0.1291, 0.1283, 0.1305],
+        [0.1307, 0.1191, 0.1175, 0.1205, 0.1254, 0.1297, 0.1279, 0.1292]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1204, 0.1282, 0.1256, 0.1244, 0.1274, 0.1260, 0.1219, 0.1261],
+        [0.1305, 0.1183, 0.1170, 0.1269, 0.1276, 0.1289, 0.1242, 0.1266],
+        [0.1214, 0.1285, 0.1247, 0.1232, 0.1237, 0.1297, 0.1232, 0.1256],
+        [0.1312, 0.1190, 0.1176, 0.1292, 0.1267, 0.1261, 0.1232, 0.1270],
+        [0.1239, 0.1225, 0.1202, 0.1236, 0.1284, 0.1286, 0.1242, 0.1286],
+        [0.1232, 0.1275, 0.1247, 0.1239, 0.1267, 0.1231, 0.1253, 0.1257],
+        [0.1289, 0.1189, 0.1168, 0.1275, 0.1261, 0.1286, 0.1253, 0.1279],
+        [0.1237, 0.1222, 0.1194, 0.1232, 0.1239, 0.1262, 0.1321, 0.1292],
+        [0.1247, 0.1223, 0.1193, 0.1232, 0.1273, 0.1280, 0.1252, 0.1301],
+        [0.1215, 0.1318, 0.1279, 0.1216, 0.1246, 0.1238, 0.1236, 0.1251],
+        [0.1311, 0.1192, 0.1174, 0.1264, 0.1281, 0.1283, 0.1258, 0.1237],
+        [0.1233, 0.1229, 0.1193, 0.1235, 0.1272, 0.1294, 0.1232, 0.1312],
+        [0.1262, 0.1238, 0.1204, 0.1254, 0.1249, 0.1286, 0.1256, 0.1252],
+        [0.1225, 0.1232, 0.1218, 0.1261, 0.1265, 0.1273, 0.1255, 0.1272]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/30 06:47:55 PM train 000 9.231836e-01 62.500000 100.000000
+07/30 06:56:29 PM train 050 1.030003e+00 63.848039 96.507353
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 07:05:04 PM train 100 1.023807e+00 63.567450 96.642946
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 07:13:37 PM train 150 1.004751e+00 64.290149 96.833609
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 07:22:13 PM train 200 1.007086e+00 64.350124 96.843905
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 07:30:48 PM train 250 9.956076e-01 64.734811 97.024402
+07/30 07:39:24 PM train 300 9.913366e-01 64.716570 96.999585
+07/30 07:48:00 PM train 350 9.802234e-01 65.104167 97.115385
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 07:54:54 PM train_acc 65.496000
+07/30 07:54:55 PM valid 000 1.178480e+00 62.500000 96.875000
+07/30 07:55:08 PM valid 050 9.336457e-01 67.156863 96.813725
+07/30 07:55:20 PM valid 100 9.285389e-01 67.202970 97.122525
+07/30 07:55:33 PM valid 150 9.175187e-01 67.663493 97.133692
+07/30 07:55:46 PM valid 200 9.204981e-01 67.552861 97.077114
+07/30 07:55:58 PM valid 250 9.119559e-01 67.928287 97.111554
+07/30 07:56:11 PM valid 300 9.107654e-01 68.044020 97.124169
+07/30 07:56:24 PM valid 350 9.101418e-01 68.215812 97.088675
+07/30 07:56:34 PM valid_acc 68.248000
+07/30 07:56:34 PM epoch 3 lr 2.445969e-02
+07/30 07:56:34 PM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('max_pool_3x3', 0), ('dil_conv_5x5', 2), ('sep_conv_3x3', 1), ('dil_conv_5x5', 3), ('sep_conv_5x5', 1), ('dil_conv_5x5', 2), ('sep_conv_3x3', 3)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_5x5', 1), ('dil_conv_5x5', 2), ('sep_conv_5x5', 0), ('dil_conv_3x3', 2), ('dil_conv_5x5', 3), ('dil_conv_5x5', 2), ('max_pool_3x3', 0)], reduce_concat=range(2, 6))
+tensor([[0.1244, 0.1293, 0.1174, 0.1251, 0.1268, 0.1276, 0.1248, 0.1246],
+        [0.1286, 0.1235, 0.1157, 0.1217, 0.1328, 0.1279, 0.1238, 0.1260],
+        [0.1240, 0.1283, 0.1160, 0.1222, 0.1263, 0.1287, 0.1267, 0.1278],
+        [0.1328, 0.1234, 0.1144, 0.1203, 0.1317, 0.1273, 0.1265, 0.1237],
+        [0.1293, 0.1197, 0.1140, 0.1207, 0.1284, 0.1318, 0.1239, 0.1322],
+        [0.1271, 0.1266, 0.1149, 0.1206, 0.1304, 0.1300, 0.1261, 0.1244],
+        [0.1289, 0.1196, 0.1136, 0.1193, 0.1310, 0.1333, 0.1232, 0.1311],
+        [0.1299, 0.1172, 0.1127, 0.1198, 0.1323, 0.1304, 0.1252, 0.1324],
+        [0.1327, 0.1141, 0.1109, 0.1155, 0.1276, 0.1316, 0.1303, 0.1372],
+        [0.1289, 0.1283, 0.1162, 0.1211, 0.1282, 0.1280, 0.1234, 0.1259],
+        [0.1314, 0.1255, 0.1171, 0.1216, 0.1255, 0.1255, 0.1272, 0.1262],
+        [0.1307, 0.1198, 0.1153, 0.1219, 0.1315, 0.1290, 0.1196, 0.1323],
+        [0.1308, 0.1170, 0.1134, 0.1168, 0.1321, 0.1310, 0.1283, 0.1306],
+        [0.1341, 0.1184, 0.1158, 0.1195, 0.1253, 0.1313, 0.1273, 0.1284]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1180, 0.1305, 0.1267, 0.1235, 0.1291, 0.1257, 0.1192, 0.1272],
+        [0.1332, 0.1156, 0.1142, 0.1269, 0.1293, 0.1301, 0.1251, 0.1255],
+        [0.1201, 0.1304, 0.1247, 0.1220, 0.1238, 0.1307, 0.1226, 0.1257],
+        [0.1344, 0.1163, 0.1141, 0.1299, 0.1262, 0.1263, 0.1234, 0.1295],
+        [0.1225, 0.1225, 0.1172, 0.1217, 0.1291, 0.1318, 0.1232, 0.1320],
+        [0.1219, 0.1282, 0.1239, 0.1234, 0.1271, 0.1229, 0.1258, 0.1268],
+        [0.1322, 0.1157, 0.1135, 0.1279, 0.1251, 0.1297, 0.1272, 0.1287],
+        [0.1233, 0.1221, 0.1174, 0.1220, 0.1234, 0.1269, 0.1332, 0.1317],
+        [0.1236, 0.1219, 0.1176, 0.1222, 0.1259, 0.1304, 0.1262, 0.1322],
+        [0.1208, 0.1337, 0.1283, 0.1203, 0.1240, 0.1244, 0.1235, 0.1250],
+        [0.1341, 0.1162, 0.1137, 0.1258, 0.1290, 0.1301, 0.1268, 0.1243],
+        [0.1226, 0.1234, 0.1170, 0.1224, 0.1263, 0.1295, 0.1245, 0.1342],
+        [0.1265, 0.1245, 0.1188, 0.1256, 0.1260, 0.1290, 0.1254, 0.1243],
+        [0.1228, 0.1232, 0.1201, 0.1252, 0.1271, 0.1278, 0.1256, 0.1282]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/30 07:56:45 PM train 000 9.253167e-01 68.750000 95.312500
+07/30 08:05:22 PM train 050 8.922807e-01 68.841912 97.273284
+07/30 08:13:57 PM train 100 8.546926e-01 69.755569 97.725866
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 08:22:34 PM train 150 8.573443e-01 69.463990 97.723510
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 08:31:11 PM train 200 8.396420e-01 70.172575 97.722326
+07/30 08:39:47 PM train 250 8.409683e-01 70.038596 97.752739
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 08:48:24 PM train 300 8.314668e-01 70.494186 97.856105
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 08:57:01 PM train 350 8.321738e-01 70.472756 97.836538
+07/30 09:03:54 PM train_acc 70.652000
+07/30 09:03:54 PM valid 000 8.436477e-01 68.750000 98.437500
+07/30 09:04:07 PM valid 050 9.040408e-01 69.393382 96.813725
+07/30 09:04:20 PM valid 100 8.964076e-01 69.059406 97.045173
+07/30 09:04:33 PM valid 150 8.880995e-01 69.019040 97.278560
+07/30 09:04:45 PM valid 200 8.814796e-01 69.294154 97.380286
+07/30 09:04:58 PM valid 250 8.825850e-01 69.223108 97.404133
+07/30 09:05:11 PM valid 300 8.792202e-01 69.352159 97.440822
+07/30 09:05:24 PM valid 350 8.763847e-01 69.444444 97.422543
+07/30 09:05:34 PM valid_acc 69.444000
+07/30 09:05:35 PM epoch 4 lr 2.420423e-02
+07/30 09:05:35 PM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_5x5', 0), ('dil_conv_5x5', 2), ('sep_conv_3x3', 1), ('dil_conv_5x5', 3), ('sep_conv_5x5', 1), ('sep_conv_3x3', 3), ('sep_conv_5x5', 4)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_3x3', 1), ('sep_conv_5x5', 2), ('sep_conv_5x5', 0), ('dil_conv_5x5', 2), ('dil_conv_5x5', 3), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1246, 0.1288, 0.1143, 0.1240, 0.1291, 0.1292, 0.1240, 0.1260],
+        [0.1297, 0.1215, 0.1125, 0.1202, 0.1385, 0.1293, 0.1222, 0.1261],
+        [0.1238, 0.1277, 0.1133, 0.1211, 0.1298, 0.1298, 0.1276, 0.1269],
+        [0.1349, 0.1217, 0.1116, 0.1192, 0.1336, 0.1287, 0.1267, 0.1235],
+        [0.1318, 0.1166, 0.1098, 0.1189, 0.1307, 0.1323, 0.1240, 0.1360],
+        [0.1287, 0.1269, 0.1125, 0.1198, 0.1296, 0.1308, 0.1276, 0.1242],
+        [0.1302, 0.1185, 0.1111, 0.1189, 0.1314, 0.1362, 0.1227, 0.1310],
+        [0.1322, 0.1155, 0.1089, 0.1190, 0.1330, 0.1315, 0.1265, 0.1334],
+        [0.1360, 0.1121, 0.1074, 0.1141, 0.1294, 0.1338, 0.1306, 0.1368],
+        [0.1308, 0.1288, 0.1147, 0.1213, 0.1275, 0.1291, 0.1229, 0.1248],
+        [0.1343, 0.1247, 0.1142, 0.1199, 0.1269, 0.1275, 0.1269, 0.1256],
+        [0.1340, 0.1184, 0.1122, 0.1215, 0.1341, 0.1307, 0.1182, 0.1308],
+        [0.1346, 0.1146, 0.1102, 0.1149, 0.1348, 0.1316, 0.1298, 0.1295],
+        [0.1382, 0.1155, 0.1116, 0.1161, 0.1246, 0.1344, 0.1295, 0.1301]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1157, 0.1316, 0.1257, 0.1236, 0.1283, 0.1271, 0.1201, 0.1280],
+        [0.1357, 0.1149, 0.1133, 0.1270, 0.1298, 0.1298, 0.1254, 0.1241],
+        [0.1180, 0.1317, 0.1237, 0.1210, 0.1244, 0.1327, 0.1235, 0.1250],
+        [0.1362, 0.1146, 0.1121, 0.1295, 0.1251, 0.1281, 0.1243, 0.1301],
+        [0.1225, 0.1206, 0.1151, 0.1209, 0.1315, 0.1340, 0.1236, 0.1317],
+        [0.1214, 0.1288, 0.1227, 0.1236, 0.1275, 0.1235, 0.1261, 0.1264],
+        [0.1328, 0.1151, 0.1123, 0.1282, 0.1265, 0.1300, 0.1272, 0.1279],
+        [0.1243, 0.1214, 0.1155, 0.1216, 0.1251, 0.1259, 0.1324, 0.1337],
+        [0.1216, 0.1210, 0.1154, 0.1216, 0.1272, 0.1324, 0.1272, 0.1336],
+        [0.1199, 0.1348, 0.1278, 0.1188, 0.1240, 0.1260, 0.1242, 0.1245],
+        [0.1372, 0.1151, 0.1119, 0.1275, 0.1300, 0.1302, 0.1257, 0.1223],
+        [0.1230, 0.1220, 0.1153, 0.1215, 0.1302, 0.1291, 0.1248, 0.1342],
+        [0.1273, 0.1235, 0.1166, 0.1263, 0.1267, 0.1298, 0.1252, 0.1246],
+        [0.1247, 0.1213, 0.1178, 0.1242, 0.1286, 0.1288, 0.1259, 0.1287]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/30 09:05:45 PM train 000 5.943794e-01 84.375000 98.437500
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 09:14:18 PM train 050 7.710327e-01 73.345588 98.069853
+07/30 09:22:52 PM train 100 7.511891e-01 73.700495 98.251856
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 09:31:25 PM train 150 7.540640e-01 73.789321 98.271937
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 09:39:57 PM train 200 7.521903e-01 73.919465 98.320896
+07/30 09:48:31 PM train 250 7.508067e-01 73.786106 98.331673
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 09:57:03 PM train 300 7.460144e-01 74.013704 98.266196
+07/30 10:05:37 PM train 350 7.432394e-01 74.131944 98.268340
+07/30 10:12:28 PM train_acc 74.292000
+07/30 10:12:29 PM valid 000 9.291655e-01 70.312500 96.875000
+07/30 10:12:42 PM valid 050 7.329995e-01 74.387255 98.192402
+07/30 10:12:54 PM valid 100 7.589109e-01 73.298267 98.035272
+07/30 10:13:07 PM valid 150 7.534731e-01 73.861755 98.137417
+07/30 10:13:20 PM valid 200 7.460990e-01 74.074938 98.212065
+07/30 10:13:33 PM valid 250 7.499584e-01 73.842131 98.225847
+07/30 10:13:45 PM valid 300 7.561503e-01 73.562085 98.183140
+07/30 10:13:58 PM valid 350 7.546827e-01 73.655627 98.210470
+07/30 10:14:08 PM valid_acc 73.768000
+07/30 10:14:09 PM epoch 5 lr 2.390474e-02
+07/30 10:14:09 PM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_3x3', 0), ('sep_conv_3x3', 1), ('dil_conv_5x5', 2), ('sep_conv_5x5', 1), ('dil_conv_5x5', 3), ('sep_conv_3x3', 2), ('sep_conv_3x3', 3)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_5x5', 1), ('sep_conv_5x5', 2), ('sep_conv_5x5', 0), ('dil_conv_5x5', 2), ('sep_conv_5x5', 3), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1242, 0.1291, 0.1121, 0.1239, 0.1305, 0.1295, 0.1235, 0.1272],
+        [0.1308, 0.1200, 0.1094, 0.1192, 0.1434, 0.1299, 0.1230, 0.1243],
+        [0.1222, 0.1273, 0.1108, 0.1207, 0.1352, 0.1298, 0.1276, 0.1263],
+        [0.1360, 0.1203, 0.1092, 0.1186, 0.1360, 0.1300, 0.1268, 0.1231],
+        [0.1362, 0.1145, 0.1066, 0.1198, 0.1322, 0.1319, 0.1231, 0.1357],
+        [0.1292, 0.1275, 0.1102, 0.1195, 0.1303, 0.1307, 0.1287, 0.1240],
+        [0.1315, 0.1173, 0.1090, 0.1185, 0.1334, 0.1387, 0.1209, 0.1306],
+        [0.1353, 0.1141, 0.1063, 0.1196, 0.1342, 0.1312, 0.1259, 0.1333],
+        [0.1398, 0.1106, 0.1048, 0.1135, 0.1296, 0.1347, 0.1295, 0.1376],
+        [0.1315, 0.1294, 0.1131, 0.1213, 0.1300, 0.1286, 0.1220, 0.1240],
+        [0.1361, 0.1238, 0.1115, 0.1184, 0.1289, 0.1283, 0.1282, 0.1248],
+        [0.1360, 0.1167, 0.1086, 0.1199, 0.1379, 0.1311, 0.1179, 0.1318],
+        [0.1383, 0.1129, 0.1070, 0.1133, 0.1364, 0.1340, 0.1294, 0.1287],
+        [0.1432, 0.1122, 0.1076, 0.1128, 0.1262, 0.1351, 0.1306, 0.1325]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1140, 0.1346, 0.1264, 0.1218, 0.1290, 0.1265, 0.1201, 0.1275],
+        [0.1382, 0.1141, 0.1123, 0.1270, 0.1290, 0.1301, 0.1258, 0.1236],
+        [0.1164, 0.1325, 0.1228, 0.1198, 0.1243, 0.1338, 0.1249, 0.1254],
+        [0.1366, 0.1129, 0.1101, 0.1302, 0.1249, 0.1305, 0.1237, 0.1311],
+        [0.1242, 0.1193, 0.1124, 0.1193, 0.1324, 0.1368, 0.1237, 0.1319],
+        [0.1197, 0.1311, 0.1229, 0.1234, 0.1279, 0.1240, 0.1255, 0.1255],
+        [0.1323, 0.1137, 0.1105, 0.1276, 0.1265, 0.1303, 0.1283, 0.1308],
+        [0.1253, 0.1211, 0.1133, 0.1204, 0.1253, 0.1256, 0.1333, 0.1357],
+        [0.1211, 0.1222, 0.1145, 0.1219, 0.1263, 0.1344, 0.1269, 0.1327],
+        [0.1195, 0.1370, 0.1282, 0.1181, 0.1259, 0.1262, 0.1218, 0.1233],
+        [0.1395, 0.1139, 0.1104, 0.1273, 0.1318, 0.1304, 0.1246, 0.1222],
+        [0.1246, 0.1211, 0.1129, 0.1207, 0.1318, 0.1304, 0.1237, 0.1348],
+        [0.1264, 0.1243, 0.1143, 0.1251, 0.1275, 0.1316, 0.1262, 0.1246],
+        [0.1258, 0.1210, 0.1155, 0.1234, 0.1289, 0.1293, 0.1269, 0.1291]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/30 10:14:19 PM train 000 6.303803e-01 75.000000 98.437500
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 10:22:53 PM train 050 6.805215e-01 76.378676 98.713235
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 10:31:26 PM train 100 6.762343e-01 76.516089 98.762376
+07/30 10:39:59 PM train 150 6.750449e-01 76.314156 98.675497
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 10:48:31 PM train 200 6.715747e-01 76.702425 98.701803
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 10:57:03 PM train 250 6.701741e-01 76.711902 98.692729
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 11:05:37 PM train 300 6.693902e-01 76.650748 98.639950
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 11:14:10 PM train 350 6.637217e-01 76.878561 98.646724
+07/30 11:21:01 PM train_acc 76.988000
+07/30 11:21:01 PM valid 000 1.058508e+00 64.062500 96.875000
+07/30 11:21:14 PM valid 050 7.276082e-01 75.337010 98.437500
+07/30 11:21:27 PM valid 100 7.112268e-01 75.711634 98.654084
+07/30 11:21:40 PM valid 150 7.085423e-01 75.558775 98.644454
+07/30 11:21:52 PM valid 200 7.176043e-01 75.295398 98.569652
+07/30 11:22:05 PM valid 250 7.158642e-01 75.460657 98.462400
+07/30 11:22:18 PM valid 300 7.093373e-01 75.705980 98.406354
+07/30 11:22:31 PM valid 350 7.087754e-01 75.734509 98.361823
+07/30 11:22:41 PM valid_acc 75.780000
+07/30 11:22:41 PM epoch 6 lr 2.356240e-02
+07/30 11:22:41 PM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_3x3', 0), ('sep_conv_3x3', 0), ('dil_conv_5x5', 2), ('dil_conv_5x5', 3), ('sep_conv_5x5', 1), ('sep_conv_3x3', 3), ('sep_conv_3x3', 2)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_5x5', 1), ('sep_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 2), ('dil_conv_5x5', 3), ('dil_conv_5x5', 2), ('max_pool_3x3', 0)], reduce_concat=range(2, 6))
+tensor([[0.1239, 0.1280, 0.1096, 0.1232, 0.1325, 0.1302, 0.1233, 0.1293],
+        [0.1326, 0.1181, 0.1065, 0.1179, 0.1493, 0.1305, 0.1226, 0.1225],
+        [0.1237, 0.1265, 0.1082, 0.1195, 0.1391, 0.1302, 0.1273, 0.1255],
+        [0.1372, 0.1206, 0.1078, 0.1183, 0.1370, 0.1308, 0.1260, 0.1223],
+        [0.1390, 0.1130, 0.1034, 0.1195, 0.1336, 0.1313, 0.1226, 0.1377],
+        [0.1321, 0.1266, 0.1074, 0.1183, 0.1319, 0.1307, 0.1290, 0.1242],
+        [0.1318, 0.1162, 0.1074, 0.1185, 0.1343, 0.1395, 0.1205, 0.1317],
+        [0.1388, 0.1123, 0.1030, 0.1191, 0.1368, 0.1328, 0.1247, 0.1325],
+        [0.1433, 0.1080, 0.1009, 0.1112, 0.1316, 0.1358, 0.1296, 0.1396],
+        [0.1345, 0.1286, 0.1104, 0.1200, 0.1315, 0.1289, 0.1235, 0.1227],
+        [0.1386, 0.1240, 0.1101, 0.1180, 0.1296, 0.1290, 0.1280, 0.1227],
+        [0.1398, 0.1146, 0.1044, 0.1180, 0.1398, 0.1333, 0.1169, 0.1333],
+        [0.1429, 0.1101, 0.1027, 0.1105, 0.1400, 0.1344, 0.1309, 0.1286],
+        [0.1488, 0.1084, 0.1031, 0.1091, 0.1272, 0.1381, 0.1325, 0.1330]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1128, 0.1357, 0.1247, 0.1218, 0.1295, 0.1287, 0.1199, 0.1268],
+        [0.1395, 0.1138, 0.1118, 0.1254, 0.1288, 0.1302, 0.1261, 0.1245],
+        [0.1168, 0.1345, 0.1221, 0.1197, 0.1244, 0.1330, 0.1250, 0.1245],
+        [0.1361, 0.1118, 0.1088, 0.1292, 0.1259, 0.1324, 0.1236, 0.1322],
+        [0.1239, 0.1196, 0.1104, 0.1190, 0.1308, 0.1397, 0.1242, 0.1324],
+        [0.1205, 0.1315, 0.1217, 0.1228, 0.1284, 0.1246, 0.1240, 0.1265],
+        [0.1313, 0.1121, 0.1085, 0.1296, 0.1272, 0.1318, 0.1281, 0.1313],
+        [0.1250, 0.1211, 0.1101, 0.1187, 0.1265, 0.1284, 0.1326, 0.1376],
+        [0.1217, 0.1209, 0.1114, 0.1204, 0.1272, 0.1345, 0.1281, 0.1359],
+        [0.1198, 0.1377, 0.1266, 0.1175, 0.1276, 0.1269, 0.1214, 0.1226],
+        [0.1400, 0.1133, 0.1095, 0.1278, 0.1320, 0.1326, 0.1234, 0.1213],
+        [0.1237, 0.1206, 0.1101, 0.1191, 0.1316, 0.1330, 0.1233, 0.1386],
+        [0.1284, 0.1225, 0.1109, 0.1241, 0.1288, 0.1321, 0.1276, 0.1256],
+        [0.1269, 0.1203, 0.1128, 0.1226, 0.1306, 0.1308, 0.1275, 0.1285]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/30 11:22:52 PM train 000 6.526605e-01 76.562500 100.000000
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 11:31:25 PM train 050 5.879002e-01 79.564951 98.743873
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/30 11:40:00 PM train 100 6.163573e-01 79.207921 98.731436
+07/30 11:48:33 PM train 150 6.159414e-01 78.994205 98.810017
+07/30 11:57:06 PM train 200 6.127969e-01 78.956779 98.779540
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:05:40 AM train 250 6.124489e-01 78.965388 98.817231
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:14:13 AM train 300 6.074208e-01 79.080150 98.832018
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:22:45 AM train 350 6.049188e-01 79.237892 98.855947
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:29:34 AM train_acc 79.256000
+07/31 12:29:35 AM valid 000 7.039403e-01 76.562500 98.437500
+07/31 12:29:48 AM valid 050 6.468262e-01 77.849265 98.590686
+07/31 12:30:01 AM valid 100 6.502608e-01 77.645421 98.545792
+07/31 12:30:14 AM valid 150 6.515399e-01 77.431705 98.561672
+07/31 12:30:27 AM valid 200 6.551877e-01 77.285448 98.585199
+07/31 12:30:40 AM valid 250 6.564651e-01 77.328187 98.537102
+07/31 12:30:53 AM valid 300 6.582934e-01 77.346346 98.499792
+07/31 12:31:06 AM valid 350 6.582317e-01 77.430556 98.482016
+07/31 12:31:17 AM valid_acc 77.548000
+07/31 12:31:17 AM epoch 7 lr 2.317856e-02
+07/31 12:31:17 AM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_3x3', 0), ('sep_conv_3x3', 0), ('sep_conv_3x3', 1), ('dil_conv_5x5', 3), ('sep_conv_5x5', 1), ('sep_conv_3x3', 2), ('sep_conv_3x3', 3)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_3x3', 1), ('sep_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 2), ('dil_conv_5x5', 3), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1247, 0.1268, 0.1071, 0.1224, 0.1364, 0.1302, 0.1230, 0.1294],
+        [0.1330, 0.1165, 0.1037, 0.1165, 0.1544, 0.1321, 0.1207, 0.1231],
+        [0.1250, 0.1262, 0.1061, 0.1191, 0.1415, 0.1291, 0.1287, 0.1242],
+        [0.1378, 0.1204, 0.1053, 0.1171, 0.1403, 0.1313, 0.1254, 0.1224],
+        [0.1419, 0.1117, 0.0999, 0.1193, 0.1333, 0.1307, 0.1237, 0.1395],
+        [0.1342, 0.1262, 0.1046, 0.1172, 0.1330, 0.1306, 0.1289, 0.1253],
+        [0.1328, 0.1168, 0.1062, 0.1185, 0.1352, 0.1396, 0.1200, 0.1309],
+        [0.1421, 0.1120, 0.1003, 0.1193, 0.1376, 0.1322, 0.1236, 0.1330],
+        [0.1488, 0.1065, 0.0981, 0.1100, 0.1310, 0.1355, 0.1297, 0.1404],
+        [0.1368, 0.1285, 0.1080, 0.1190, 0.1328, 0.1294, 0.1235, 0.1220],
+        [0.1403, 0.1241, 0.1082, 0.1164, 0.1304, 0.1296, 0.1293, 0.1217],
+        [0.1439, 0.1145, 0.1016, 0.1177, 0.1415, 0.1325, 0.1158, 0.1325],
+        [0.1479, 0.1089, 0.1001, 0.1091, 0.1404, 0.1346, 0.1295, 0.1294],
+        [0.1536, 0.1067, 0.1004, 0.1065, 0.1287, 0.1376, 0.1321, 0.1343]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1114, 0.1360, 0.1243, 0.1232, 0.1299, 0.1290, 0.1193, 0.1269],
+        [0.1404, 0.1135, 0.1117, 0.1248, 0.1294, 0.1290, 0.1259, 0.1254],
+        [0.1168, 0.1356, 0.1218, 0.1197, 0.1250, 0.1324, 0.1251, 0.1235],
+        [0.1352, 0.1115, 0.1082, 0.1301, 0.1248, 0.1328, 0.1236, 0.1339],
+        [0.1239, 0.1196, 0.1096, 0.1195, 0.1300, 0.1402, 0.1228, 0.1344],
+        [0.1189, 0.1316, 0.1215, 0.1243, 0.1297, 0.1249, 0.1234, 0.1257],
+        [0.1325, 0.1115, 0.1082, 0.1300, 0.1266, 0.1316, 0.1262, 0.1334],
+        [0.1250, 0.1204, 0.1093, 0.1193, 0.1272, 0.1269, 0.1330, 0.1389],
+        [0.1231, 0.1181, 0.1089, 0.1192, 0.1277, 0.1358, 0.1284, 0.1387],
+        [0.1191, 0.1396, 0.1276, 0.1172, 0.1289, 0.1246, 0.1214, 0.1217],
+        [0.1417, 0.1143, 0.1104, 0.1274, 0.1312, 0.1323, 0.1225, 0.1200],
+        [0.1236, 0.1209, 0.1097, 0.1201, 0.1302, 0.1328, 0.1240, 0.1387],
+        [0.1291, 0.1211, 0.1097, 0.1245, 0.1266, 0.1341, 0.1288, 0.1260],
+        [0.1276, 0.1192, 0.1114, 0.1226, 0.1316, 0.1320, 0.1260, 0.1296]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/31 12:31:28 AM train 000 4.649500e-01 81.250000 98.437500
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:40:01 AM train 050 5.348630e-01 81.525735 99.080882
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 12:48:37 AM train 100 5.388776e-01 81.590347 99.149134
+07/31 12:57:10 AM train 150 5.527400e-01 81.105132 98.996275
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 01:05:42 AM train 200 5.622907e-01 80.628109 98.981654
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 01:14:15 AM train 250 5.611618e-01 80.658616 98.947958
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 01:22:48 AM train 300 5.567401e-01 80.839909 99.008513
+07/31 01:31:22 AM train 350 5.580793e-01 80.684651 99.034010
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 01:38:13 AM train_acc 80.544000
+07/31 01:38:13 AM valid 000 4.315410e-01 84.375000 100.000000
+07/31 01:38:26 AM valid 050 6.570311e-01 78.523284 98.437500
+07/31 01:38:39 AM valid 100 6.540438e-01 78.496287 98.391089
+07/31 01:38:53 AM valid 150 6.353986e-01 78.725166 98.540977
+07/31 01:39:06 AM valid 200 6.308313e-01 78.886816 98.515236
+07/31 01:39:19 AM valid 250 6.237910e-01 79.040090 98.605578
+07/31 01:39:32 AM valid 300 6.233643e-01 79.100914 98.603613
+07/31 01:39:45 AM valid 350 6.195230e-01 79.139957 98.579950
+07/31 01:39:56 AM valid_acc 79.152000
+07/31 01:39:56 AM epoch 8 lr 2.275473e-02
+07/31 01:39:56 AM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_3x3', 0), ('sep_conv_3x3', 0), ('sep_conv_3x3', 1), ('sep_conv_5x5', 1), ('dil_conv_5x5', 3), ('sep_conv_3x3', 3), ('sep_conv_3x3', 2)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_5x5', 1), ('sep_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 3), ('dil_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1237, 0.1263, 0.1048, 0.1220, 0.1391, 0.1315, 0.1233, 0.1293],
+        [0.1355, 0.1141, 0.1006, 0.1149, 0.1608, 0.1308, 0.1213, 0.1221],
+        [0.1252, 0.1250, 0.1032, 0.1178, 0.1449, 0.1310, 0.1288, 0.1241],
+        [0.1400, 0.1179, 0.1026, 0.1156, 0.1427, 0.1321, 0.1266, 0.1225],
+        [0.1451, 0.1097, 0.0964, 0.1196, 0.1338, 0.1305, 0.1238, 0.1410],
+        [0.1359, 0.1259, 0.1024, 0.1165, 0.1346, 0.1313, 0.1290, 0.1243],
+        [0.1353, 0.1148, 0.1037, 0.1173, 0.1358, 0.1425, 0.1205, 0.1301],
+        [0.1447, 0.1107, 0.0974, 0.1187, 0.1375, 0.1336, 0.1252, 0.1321],
+        [0.1546, 0.1045, 0.0949, 0.1088, 0.1309, 0.1370, 0.1284, 0.1408],
+        [0.1395, 0.1278, 0.1055, 0.1177, 0.1330, 0.1290, 0.1241, 0.1233],
+        [0.1440, 0.1233, 0.1062, 0.1154, 0.1306, 0.1304, 0.1296, 0.1206],
+        [0.1481, 0.1127, 0.0981, 0.1165, 0.1413, 0.1320, 0.1170, 0.1342],
+        [0.1549, 0.1063, 0.0963, 0.1068, 0.1414, 0.1335, 0.1309, 0.1299],
+        [0.1598, 0.1036, 0.0962, 0.1028, 0.1294, 0.1399, 0.1316, 0.1368]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1095, 0.1377, 0.1246, 0.1230, 0.1312, 0.1285, 0.1189, 0.1267],
+        [0.1421, 0.1134, 0.1116, 0.1263, 0.1282, 0.1289, 0.1245, 0.1251],
+        [0.1157, 0.1371, 0.1217, 0.1192, 0.1250, 0.1325, 0.1260, 0.1228],
+        [0.1346, 0.1120, 0.1084, 0.1298, 0.1246, 0.1338, 0.1244, 0.1324],
+        [0.1249, 0.1184, 0.1078, 0.1192, 0.1292, 0.1420, 0.1230, 0.1355],
+        [0.1185, 0.1316, 0.1212, 0.1257, 0.1309, 0.1257, 0.1229, 0.1234],
+        [0.1325, 0.1118, 0.1089, 0.1296, 0.1260, 0.1328, 0.1266, 0.1318],
+        [0.1265, 0.1194, 0.1082, 0.1202, 0.1272, 0.1277, 0.1328, 0.1382],
+        [0.1226, 0.1161, 0.1069, 0.1187, 0.1269, 0.1384, 0.1290, 0.1415],
+        [0.1185, 0.1410, 0.1279, 0.1168, 0.1291, 0.1242, 0.1217, 0.1207],
+        [0.1423, 0.1153, 0.1114, 0.1268, 0.1309, 0.1328, 0.1202, 0.1204],
+        [0.1255, 0.1190, 0.1080, 0.1207, 0.1303, 0.1343, 0.1226, 0.1397],
+        [0.1289, 0.1193, 0.1077, 0.1244, 0.1278, 0.1369, 0.1294, 0.1255],
+        [0.1297, 0.1171, 0.1086, 0.1214, 0.1332, 0.1326, 0.1253, 0.1321]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/31 01:40:06 AM train 000 5.388132e-01 84.375000 98.437500
+07/31 01:48:39 AM train 050 5.282924e-01 81.862745 98.958333
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 01:57:13 AM train 100 5.307658e-01 81.621287 99.133663
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 02:05:49 AM train 150 5.222144e-01 82.036424 99.151490
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 02:14:24 AM train 200 5.158811e-01 82.361629 99.183769
+07/31 02:22:57 AM train 250 5.200992e-01 82.133964 99.215637
+07/31 02:31:32 AM train 300 5.152391e-01 82.241487 99.247301
+07/31 02:40:04 AM train 350 5.164124e-01 82.260506 99.229879
+07/31 02:46:55 AM train_acc 82.232000
+07/31 02:46:56 AM valid 000 6.712003e-01 71.875000 100.000000
+07/31 02:47:09 AM valid 050 5.925458e-01 79.442402 98.835784
+07/31 02:47:21 AM valid 100 5.926082e-01 79.749381 98.870668
+07/31 02:47:34 AM valid 150 6.015920e-01 79.594371 98.799669
+07/31 02:47:47 AM valid 200 6.106787e-01 79.384328 98.779540
+07/31 02:48:00 AM valid 250 6.058817e-01 79.569223 98.786106
+07/31 02:48:13 AM valid 300 6.063418e-01 79.547342 98.837209
+07/31 02:48:25 AM valid 350 6.048953e-01 79.678597 98.820335
+07/31 02:48:36 AM valid_acc 79.708000
+07/31 02:48:36 AM epoch 9 lr 2.229259e-02
+07/31 02:48:36 AM genotype = Genotype(normal=[('sep_conv_3x3', 1), ('sep_conv_3x3', 0), ('sep_conv_3x3', 0), ('sep_conv_3x3', 1), ('sep_conv_5x5', 1), ('dil_conv_5x5', 3), ('sep_conv_3x3', 2), ('sep_conv_3x3', 3)], normal_concat=range(2, 6), reduce=[('max_pool_3x3', 0), ('sep_conv_5x5', 1), ('sep_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 3), ('dil_conv_5x5', 2), ('max_pool_3x3', 0), ('dil_conv_5x5', 2)], reduce_concat=range(2, 6))
+tensor([[0.1237, 0.1244, 0.1037, 0.1227, 0.1421, 0.1314, 0.1226, 0.1293],
+        [0.1372, 0.1127, 0.0987, 0.1145, 0.1645, 0.1302, 0.1201, 0.1222],
+        [0.1262, 0.1236, 0.1019, 0.1177, 0.1472, 0.1299, 0.1299, 0.1237],
+        [0.1420, 0.1167, 0.1006, 0.1147, 0.1441, 0.1330, 0.1268, 0.1221],
+        [0.1499, 0.1076, 0.0934, 0.1197, 0.1361, 0.1296, 0.1239, 0.1398],
+        [0.1381, 0.1246, 0.1017, 0.1172, 0.1354, 0.1307, 0.1286, 0.1238],
+        [0.1373, 0.1130, 0.1018, 0.1164, 0.1354, 0.1453, 0.1196, 0.1311],
+        [0.1500, 0.1084, 0.0948, 0.1188, 0.1384, 0.1332, 0.1259, 0.1306],
+        [0.1621, 0.1013, 0.0914, 0.1073, 0.1336, 0.1353, 0.1279, 0.1412],
+        [0.1410, 0.1268, 0.1052, 0.1191, 0.1325, 0.1282, 0.1260, 0.1212],
+        [0.1476, 0.1217, 0.1042, 0.1137, 0.1322, 0.1317, 0.1299, 0.1189],
+        [0.1532, 0.1101, 0.0949, 0.1154, 0.1425, 0.1309, 0.1172, 0.1358],
+        [0.1621, 0.1029, 0.0925, 0.1041, 0.1422, 0.1356, 0.1317, 0.1289],
+        [0.1701, 0.0998, 0.0922, 0.0992, 0.1310, 0.1380, 0.1313, 0.1385]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+tensor([[0.1080, 0.1389, 0.1249, 0.1237, 0.1340, 0.1271, 0.1172, 0.1263],
+        [0.1429, 0.1141, 0.1122, 0.1250, 0.1274, 0.1295, 0.1228, 0.1261],
+        [0.1142, 0.1397, 0.1235, 0.1173, 0.1251, 0.1314, 0.1261, 0.1227],
+        [0.1341, 0.1125, 0.1092, 0.1310, 0.1253, 0.1311, 0.1242, 0.1325],
+        [0.1255, 0.1180, 0.1069, 0.1200, 0.1290, 0.1431, 0.1220, 0.1356],
+        [0.1179, 0.1328, 0.1220, 0.1259, 0.1318, 0.1266, 0.1213, 0.1216],
+        [0.1316, 0.1128, 0.1101, 0.1288, 0.1253, 0.1336, 0.1259, 0.1319],
+        [0.1285, 0.1200, 0.1078, 0.1225, 0.1267, 0.1276, 0.1313, 0.1356],
+        [0.1224, 0.1151, 0.1057, 0.1187, 0.1275, 0.1385, 0.1294, 0.1426],
+        [0.1179, 0.1428, 0.1290, 0.1165, 0.1292, 0.1233, 0.1208, 0.1205],
+        [0.1417, 0.1177, 0.1138, 0.1254, 0.1301, 0.1341, 0.1186, 0.1186],
+        [0.1260, 0.1187, 0.1071, 0.1215, 0.1303, 0.1337, 0.1232, 0.1396],
+        [0.1298, 0.1182, 0.1067, 0.1254, 0.1270, 0.1392, 0.1297, 0.1240],
+        [0.1334, 0.1157, 0.1070, 0.1215, 0.1340, 0.1307, 0.1238, 0.1340]],
+       device='cuda:0', grad_fn=<SoftmaxBackward>)
+07/31 02:48:47 AM train 000 4.632947e-01 84.375000 100.000000
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 02:57:20 AM train 050 4.498316e-01 84.803922 99.264706
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 03:05:53 AM train 100 4.597272e-01 84.034653 99.350248
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 03:14:25 AM train 150 4.652988e-01 83.816225 99.389487
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 03:22:58 AM train 200 4.707708e-01 83.597637 99.354789
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 03:31:31 AM train 250 4.745836e-01 83.372759 99.365040
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+07/31 03:40:04 AM train 300 4.835801e-01 83.207018 99.309593
+07/31 03:48:40 AM train 350 4.772761e-01 83.404558 99.323362
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/queues.py", line 242, in _feed
+    send_bytes(obj)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 404, in _send_bytes
+    self._send(header + buf)
+  File "/opt/conda/envs/deeplearning/lib/python3.7/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
